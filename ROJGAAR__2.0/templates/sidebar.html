@@ -1,0 +1,25 @@
+<div class="sidebar">
+
+<h2 class="logo">ROJGAAR</h2>
+
+{% if user and user.user_type == "employer" %}
+
+<a href="/employer_dashboard">Dashboard</a>
+<a href="/post-job">Post Jobs</a>
+<a href="/find-workers">Find Workers</a>
+<a href="/messages">Messages</a>
+<a href="/employer_profile">Profile</a>
+
+{% elif user and user.user_type == "worker" %}
+
+<a href="/worker_dashboard">Dashboard</a>
+<a href="/find-jobs">Find Jobs</a>
+<a href="/messages">Messages</a>
+<a href="/worker_profile">Profile</a>
+
+{% endif %}
+<span class="badge">{{ notifications }}</span>
+
+<a href="/logout">Logout</a>
+
+</div>

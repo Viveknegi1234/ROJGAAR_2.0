@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+<h1>Find Workers</h1>
+<p>Hire verified workers near your location.</p>
+</div>
+
+<div class="search-bar">
+
+<input type="text" placeholder="Search skill (electrician, plumber...)">
+
+<input type="number" placeholder="Max Wage ₹">
+
+<button>Search</button>
+
+</div>
+
+<div class="worker-grid">
+
+<div class="worker-card">
+<img src="https://via.placeholder.com/80">
+<h3>Rahul Kumar</h3>
+<p>Electrician</p>
+<p>₹700/day</p>
+<button class="hire-btn">Hire</button>
+</div>
+
+<div class="worker-card">
+<img src="https://via.placeholder.com/80">
+<h3>Ramesh</h3>
+<p>Painter</p>
+<p>₹500/day</p>
+<button class="hire-btn">Hire</button>
+</div>
+
+<div class="worker-card">
+<img src="https://via.placeholder.com/80">
+<h3>Suresh</h3>
+<p>Plumber</p>
+<p>₹600/day</p>
+<button class="hire-btn">Hire</button>
+</div>
+
+</div>
+
+{% endblock %}

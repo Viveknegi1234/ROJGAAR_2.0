@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Employer Profile | Rojgaar 2.0</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f6f9;
+margin:0;
+}
+
+.profile-container{
+max-width:650px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.profile-img{
+width:120px;
+height:120px;
+border-radius:50%;
+background:#ddd;
+margin:auto;
+margin-bottom:20px;
+}
+
+.profile-info{
+text-align:left;
+margin-top:20px;
+}
+
+.profile-info p{
+padding:10px 0;
+border-bottom:1px solid #eee;
+}
+
+.stats{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+.stat-box{
+background:#f1f1f1;
+padding:15px;
+border-radius:8px;
+width:30%;
+text-align:center;
+}
+
+.edit-btn{
+display:block;
+margin-top:25px;
+padding:10px;
+background:#28a745;
+color:white;
+text-decoration:none;
+border-radius:5px;
+text-align:center;
+}
+
+.edit-btn:hover{
+background:#1e7e34;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="profile-container">
+
+<div class="profile-img"></div>
+
+<h2>{{ user.name }}</h2>
+
+<div class="profile-info">
+
+<p><strong>Email:</strong> {{ user.email }}</p>
+
+<p><strong>Account Type:</strong> Employer</p>
+
+<p><strong>Joined:</strong> {{ user.created_at }}</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3>Jobs</h3>
+<p>--</p>
+</div>
+
+<div class="stat-box">
+<h3>Workers Hired</h3>
+<p>--</p>
+</div>
+
+<div class="stat-box">
+<h3>Rating</h3>
+<p>4.5</p>
+</div>
+
+</div>
+
+<a href="/edit_profile" class="edit-btn">Edit Profile</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Worker Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<nav class="bg-green-600 text-white p-4 flex justify-between">
+
+<h1 class="text-xl font-bold">
+ROJGAAR 2.0 Worker
+</h1>
+
+<a href="/map">
+<button class="bg-white text-green-600 px-3 py-1 rounded">
+Find Jobs Near Me
+</button>
+</a>
+
+<div>
+{{user_name}}
+<a href="/logout" class="ml-4 bg-red-500 px-3 py-1 rounded">Logout</a>
+</div>
+
+</nav>
+
+
+<div class="flex">
+
+<!-- SIDEBAR -->
+
+<div class="w-64 bg-white h-screen shadow p-6">
+
+<ul class="space-y-6">
+
+<li class="font-semibold text-green-600">Dashboard</li>
+<li><a href="/find-jobs">Find Jobs</a></li>
+<li><a href="/messages">Messages</a></li>
+<li><a href="/worker-profile">Profile</a></li>
+
+</ul>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="flex-1 p-10">
+
+<h2 class="text-3xl font-bold mb-6">
+Worker Dashboard
+</h2>
+
+
+<!-- STATS -->
+
+<div class="grid grid-cols-3 gap-6 mb-10">
+
+<div class="bg-white p-6 rounded shadow">
+<h3>Jobs Applied</h3>
+<p class="text-2xl font-bold">8</p>
+</div>
+
+<div class="bg-white p-6 rounded shadow">
+<h3>Jobs Completed</h3>
+<p class="text-2xl font-bold">4</p>
+</div>
+
+<div class="bg-white p-6 rounded shadow">
+<h3>Rating</h3>
+<p class="text-2xl font-bold">4.5 ⭐</p>
+</div>
+
+</div>
+
+
+<h3 class="text-xl font-semibold mb-4">
+Available Jobs
+</h3>
+
+
+<div id="jobs" class="grid grid-cols-3 gap-6"></div>
+
+</div>
+
+</div>
+
+
+
+
+<script>
+
+async function loadJobs(){
+
+let container = document.getElementById("jobs")
+
+try{
+
+let res = await fetch("/api/jobs")
+let jobs = await res.json()
+
+container.innerHTML = ""
+
+if(jobs.length === 0){
+
+container.innerHTML = `
+<div class="col-span-3 text-center text-gray-500">
+No jobs available yet
+</div>
+`
+
+return
+}
+
+jobs.forEach(j=>{
+
+container.innerHTML += `
+
+<div class="bg-white p-6 rounded shadow hover:shadow-lg">
+
+<h4 class="font-semibold text-lg mb-2">${j.title}</h4>
+
+<p class="text-gray-600 mb-2">${j.description}</p>
+
+<p class="text-green-600 font-bold mb-3">
+₹ ${j.wage}
+</p>
+
+<button onclick="applyJob()"
+class="bg-green-600 text-white px-4 py-2 rounded">
+Apply
+</button>
+
+
+</div>
+
+`
+
+})
+
+}catch(error){
+
+container.innerHTML = `
+<div class="text-red-500">
+Failed to load jobs
+</div>
+`
+
+}
+
+}
+
+loadJobs()
+
+
+</script>
+<script src="/static/js/script.js"></script>
+
+</body>
+</html>

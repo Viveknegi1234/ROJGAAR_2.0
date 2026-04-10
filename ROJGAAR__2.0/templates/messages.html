@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="messages-container">
+
+<div class="chat-list">
+
+<h2>Messages</h2>
+
+<div class="chat-user">
+<img src="https://via.placeholder.com/40">
+<div>
+<strong>Rahul (Electrician)</strong>
+<p>Hi sir, I am available tomorrow.</p>
+</div>
+</div>
+
+<div class="chat-user">
+<img src="https://via.placeholder.com/40">
+<div>
+<strong>Ramesh (Painter)</strong>
+<p>Can we discuss the job?</p>
+</div>
+</div>
+
+<div class="chat-user">
+<img src="https://via.placeholder.com/40">
+<div>
+<strong>Suresh (Plumber)</strong>
+<p>I can come today.</p>
+</div>
+</div>
+
+</div>
+
+<div class="chat-box">
+
+<div class="chat-header">
+<h3>Rahul Kumar</h3>
+</div>
+
+<div class="chat-messages">
+
+<div class="message received">
+Hello sir, I saw your job post.
+</div>
+
+<div class="message sent">
+Yes, when can you come?
+</div>
+
+<div class="message received">
+Tomorrow morning.
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input type="text" placeholder="Type a message...">
+
+<button>Send</button>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

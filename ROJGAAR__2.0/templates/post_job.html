@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Post Job</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f6fa;
+padding:40px;
+}
+
+.container{
+width:500px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+input, textarea{
+
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+
+}
+
+button{
+
+width:100%;
+padding:12px;
+background:#4CAF50;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+
+}
+
+button:hover{
+background:#45a049;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Post a Job</h2>
+
+<form method="POST">
+
+<input type="text" name="title" placeholder="Job Title" required>
+
+<textarea name="description" placeholder="Job Description" required></textarea>
+
+<input type="text" name="location" placeholder="Location" required>
+
+<input type="text" name="salary" placeholder="Salary / Wage" required>
+
+<button type="submit">Post Job</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

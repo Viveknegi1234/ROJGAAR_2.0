@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Worker Profile</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f5f7fb;
+margin:0;
+}
+
+.profile-container{
+width:600px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-header{
+text-align:center;
+}
+
+.profile-header img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:10px;
+}
+
+.profile-header h2{
+margin:5px 0;
+}
+
+.profile-info{
+margin-top:20px;
+}
+
+.profile-info p{
+font-size:16px;
+margin:8px 0;
+}
+
+.edit-btn{
+margin-top:20px;
+display:block;
+text-align:center;
+background:#007bff;
+color:white;
+padding:10px;
+border-radius:5px;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="profile-container">
+
+<div class="profile-header">
+
+<img src="https://via.placeholder.com/120">
+
+<h2>{{ user.name }}</h2>
+
+<p>{{ user.email }}</p>
+
+</div>
+
+<div class="profile-info">
+
+<p><b>Role:</b> Worker</p>
+
+<p><b>Skills:</b> {{ user.skills if user.skills else "Not added" }}</p>
+
+<p><b>Experience:</b> {{ user.experience if user.experience else "Not added" }}</p>
+
+<p><b>Daily Wage:</b> ₹{{ user.daily_wage if user.daily_wage else "Not added" }}</p>
+
+</div>
+
+<a href="/edit_profile" class="edit-btn">Edit Profile</a>
+
+</div>
+
+</body>
+</html>

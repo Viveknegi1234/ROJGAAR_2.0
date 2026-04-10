@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Find Workers Near You</h2>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<div id="map" style="height:500px; width:100%;"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    // Create map
+    var map = L.map('map').setView([20.5937, 78.9629], 5);
+
+    // Load map tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Get user location
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(function(position){
+
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            map.setView([lat, lng], 13);
+
+            L.marker([lat, lng])
+            .addTo(map)
+            .bindPopup("You are here")
+            .openPopup();
+
+        });
+
+    }
+
+    // Load workers from API
+    fetch("/api/workers")
+    .then(res => res.json())
+    .then(workers => {
+
+        workers.forEach(function(w){
+
+            if(w.lat && w.lng){
+
+                L.marker([w.lat, w.lng])
+                .addTo(map)
+                .bindPopup("<b>" + w.name + "</b><br>" + w.skills);
+
+            }
+
+        });
+
+    })
+    .catch(err => console.log("Worker loading error:", err));
+
+});
+
+</script>
+
+{% endblock %}
+

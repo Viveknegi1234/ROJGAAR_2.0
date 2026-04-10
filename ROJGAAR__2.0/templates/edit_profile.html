@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-card">
+
+<h1>Edit Profile</h1>
+
+<form method="POST">
+
+<label>Name</label>
+<input type="text" name="name" value="{{ user.name }}">
+
+<label>Email</label>
+<input type="email" name="email" value="{{ user.email }}">
+
+{% if user.user_type == "worker" %}
+
+<label>Skill</label>
+<input type="text" name="skill" value="{{ user.skill }}">
+
+<label>Daily Wage</label>
+<input type="number" name="wage" value="{{ user.wage }}">
+
+{% else %}
+
+<label>Company</label>
+<input type="text" name="company" value="{{ user.company }}">
+
+<label>Location</label>
+<input type="text" name="location" value="{{ user.location }}">
+
+{% endif %}
+
+<button class="primary-btn">Save Changes</button>
+
+</form>
+
+</div>
+
+{% endblock %}
