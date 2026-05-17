@@ -1,6 +1,6 @@
 # ROJGAAR_2.0
 MY FIRST PROJECT .
-# 🚀 ROJGAAR 2.0
+#  ROJGAAR 2.0
 
 ROJGAAR 2.0 is a web platform that connects workers and employers. It allows users to post jobs, search for work, and manage opportunities easily .
 
@@ -12,9 +12,9 @@ ROJGAAR 2.0 is a web platform that connects workers and employers. It allows use
 * Basic Map Integration
 
  Tech Stack
-* **Frontend:** HTML, Tailwind CSS, JavaScript
-* **Backend:** Python (Flask)
-* **Database:** SQLite (SQLAlchemy)
+*Frontend:* HTML, Tailwind CSS, JavaScript
+*Backend:* Python (Flask)
+*Database:* SQLite (SQLAlchemy)
 
  Setup
 
@@ -27,4 +27,4 @@ python app.py
 
 ---
 
-⭐ Simple project to improve local job connectivity.
+Simple project to improve local job connectivity.
